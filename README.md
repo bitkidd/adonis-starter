@@ -16,7 +16,7 @@ It is just an example of how you can implement front-end stuff and authenticatio
 
 ## How to use
 To use this repo, you can clone it, or even install via `adonis` command:
-`adonis new <PATH> --blueprint=git@github.com:keeross/adonis-starter.git`
+`adonis new <PATH> --blueprint=keeross/adonis-starter`
 
 ## How to run
 A very basic adonis command is `adonis serve --dev`.
