@@ -1,0 +1,30 @@
+@layout('layouts/auth')
+
+@section('content')
+
+  <form class="auth__form" method="POST" action="{{ route('auth.signup') }}">
+
+    {{ csrfField() }}
+
+    {{--
+    @include('modules/auth/flash')
+    --}}
+    REGISTER PAGE
+
+    <div class="auth__field">
+      <label type="email">Email</label>
+      <input type="text" id="email" name="email"></input>
+    </div>
+
+    <div class="auth__field">
+      <label type="password">Password</label>
+      <input type="password" id="password" name="password"></input>
+    </div>
+
+    <div class="auth__field">
+      <input type="submit" value="Sign Up"></input>
+    </div>
+
+  </form>
+
+@endsection

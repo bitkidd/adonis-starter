@@ -1,0 +1,143 @@
+
+@import '_vars';
+
+.topbar {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  header {
+    width: 100%;
+    padding: 15px;
+    background: @black;
+    overflow: hidden;
+  }
+
+  footer {
+    width: 100%;
+  }
+
+  .wrapper {
+    padding: 15px 0;
+
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+  }
+
+  .topbar__logo {
+    width: 125px;
+    fill: #FFF;
+    float: left;
+    padding: 5px 0;
+  }
+
+  .topbar__action {
+    float: right;
+    margin-left: 10px;
+    display: block;
+  }
+
+  .topbar__menu {
+    margin: 0;
+    padding: 0;
+    float: right;
+    display: block;
+    position: relative;
+
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      position: relative;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+
+        .btn {
+          background: #FFF;
+          color: @black;
+        }
+
+        .topbar__menu__submenu {
+          display: block;
+        }
+
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+      }
+
+      .topbar__menu__submenu {
+        width: 100%;
+        background: #FFF;
+        position: absolute;
+        padding: 0;
+        top: 100%;
+        left: 0;
+        z-index: 5;
+        display: none;
+        padding-top: 5px;
+        margin-top: -5px;
+
+        li {
+          width: 100%;
+
+          a {
+            width: 100%;
+            text-align: center;
+            display: block;
+            padding: 12px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: @color;
+
+            &:hover {
+              background: darken( @color, 7% );
+              color: #FFF;
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  .topbar__flash {
+    width: 100%;
+    padding: 7px 15px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #FFF;
+
+    .wrapper {
+      padding: 0;
+    }
+
+    &.flash-info {
+      background: @green;
+    }
+
+    &.flash-error {
+      background: @red;
+    }
+
+  }
+
+}

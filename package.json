@@ -1,0 +1,52 @@
+{
+  "name": "adonis-starter",
+  "version": "1.0.0",
+  "description": "Starter pack for Adonis v.4",
+  "main": "index.js",
+  "scripts": {
+    "build": "mkdir -p public/build && rm -rf public/build/* && webpack -p",
+    "watch": "mkdir -p public/build && rm -rf public/build/* && webpack -w",
+    "start": "node server.js",
+    "test": "node ace test"
+  },
+  "keywords": [
+    "adonisjs",
+    "adonis-app"
+  ],
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@adonisjs/ace": "^4.0.5",
+    "@adonisjs/auth": "^2.0.5",
+    "@adonisjs/bodyparser": "^1.0.5",
+    "@adonisjs/cors": "^1.0.1",
+    "@adonisjs/fold": "^4.0.2",
+    "@adonisjs/framework": "^4.0.15",
+    "@adonisjs/ignitor": "^1.0.10",
+    "@adonisjs/lucid": "^4.0.15",
+    "@adonisjs/mail": "^3.0.1",
+    "@adonisjs/session": "^1.0.10",
+    "@adonisjs/shield": "^1.0.2",
+    "@adonisjs/validator": "^4.0.3",
+    "pg": "^7.2.0"
+  },
+  "devDependencies": {
+    "assets-webpack-plugin": "^3.5.1",
+    "autoprefixer": "^7.1.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.5",
+    "expose-loader": "^0.7.3",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.18.2",
+    "uglify-js": "^3.0.28",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.5.5"
+  }
+}

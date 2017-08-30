@@ -1,0 +1,61 @@
+
+@import '_vars';
+
+.items {
+  width: 100%;
+  float: left;
+
+  .items__inner {
+    width: 102%;
+    margin: 0 -1%;
+    overflow: hidden;
+  }
+
+  .items__item {
+    width: 25%;
+    border: 2px @border solid;
+    border-radius: @radius;
+    margin: 1%;
+    display: block;
+    text-decoration: none;
+    color: #222;
+    background: #FFF;
+    float: left;
+
+    &:hover {
+      border-color: @color;
+
+      .items__item__icons {
+        background: @color;
+      }
+
+    }
+
+    .items__item__icons {
+      padding: 15px;
+      background: @border;
+      color: #FFF;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+
+      .items__item__icons__icon {
+        flex: 1 33.3%;
+        padding: 10px;
+
+        svg {
+          fill: #FFF;
+        }
+
+      }
+
+    }
+
+    .items__item__title {
+      color: #222;
+      padding: 15px;
+    }
+
+  }
+
+}

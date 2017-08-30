@@ -1,0 +1,125 @@
+
+@import '_vars';
+
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-top: 25px;
+
+  &.dropzone {
+    padding: 25px 25px 15px 25px;
+    border: 2px @border solid;
+
+    .dz-preview {
+      width: 48%;
+      background: @border;
+      padding: 0;
+      margin: 1%;
+      overflow: hidden;
+      min-height: auto;
+
+      .dz-details {
+        position: relative;
+        padding: 10px;
+        opacity: 1;
+
+        .dz-size,
+        .dz-filename {
+          margin-bottom: 0;
+
+          &:hover {
+
+            span {
+              background: none;
+              border: none;
+            }
+
+          }
+
+          span {
+            background: none;
+            border: none;
+          }
+
+        }
+
+      }
+
+      .dz-progress {
+        width: 100%;
+        top: initial;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        height: 5px;
+        border-radius: 0;
+      }
+
+      .dz-image {
+        display: none;
+      }
+
+    }
+
+  }
+
+  .form__input {
+    margin-bottom: 15px;
+  }
+
+  label {
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: @black;
+  }
+
+  input,
+  textarea {
+
+    &:not([type='submit']) {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border: 2px @border solid;
+      background: #FFF;
+      color: #222;
+      outline: none;
+
+      &:disabled {
+        background: #999;
+        color: #222;
+      }
+
+      &:read-only {
+        background: #CCC;
+        color: #222;
+      }
+    }
+
+  }
+
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  pre {
+    width: 100%;
+    display: block;
+    word-break: break-all;
+  }
+
+  code {
+    display: block;
+    background: #FFF;
+    padding: 15px;
+    word-break: break-all;
+    outline: none;
+    min-height: 150px;
+  }
+
+}

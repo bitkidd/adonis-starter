@@ -1,0 +1,33 @@
+
+@import '_vars';
+
+// Core
+html,
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: @background;
+  color: #444;
+}
+
+* {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  padding-top: 67px;
+
+  &.no-padding {
+    padding: 0;
+  }
+
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}

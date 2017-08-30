@@ -1,0 +1,20 @@
+@layout('layouts/auth')
+
+@section('content')
+
+  <form class="auth__form" method="POST" action="{{ route('auth.forgot') }}">
+
+    {{ csrfField() }}
+
+    <div class="auth__field">
+      <label type="email">Email</label>
+      <input type="text" id="email" name="email"></input>
+    </div>
+
+    <div class="auth__field">
+      <input type="submit" value="Forgot password"></input>
+    </div>
+
+  </form>
+
+@endsection

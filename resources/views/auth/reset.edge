@@ -1,0 +1,22 @@
+@layout('layouts/auth')
+
+@section('content')}
+
+  <form class="auth__form" method="POST" action="{{ route('auth.reset') }}">
+
+    {{ csrfField() }}
+
+    <input type="hidden" name="token" value="{{ token }}" />
+
+    <div class="auth__field">
+      <label type="email">New password</label>
+      <input type="password" id="password" name="password"></input>
+    </div>
+
+    <div class="auth__field">
+      <input type="submit" value="Change password"></input>
+    </div>
+
+  </form>
+
+@endsection

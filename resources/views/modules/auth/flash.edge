@@ -1,0 +1,24 @@
+<div class="auth__flash">
+
+  @if( old('flash_info') )
+    <div class="auth__flash__info">
+      {{ old('flash_info') }}
+    </div>
+  @endif
+
+  @if( old('flash_error') )
+    <div class="auth__flash__error">
+      {{ old('flash_error') }}
+    </div>
+  @endif
+
+  @if( old('errors') )
+    <div class="auth__flash__error">
+      @each( error in old('errors') )
+        <ul>
+          <li>{{ error.message }}</li>
+        </ul>
+      @endeach
+    </div>
+  @endif
+</div>

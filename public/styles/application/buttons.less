@@ -1,0 +1,105 @@
+
+@import '_vars';
+
+.btn {
+  width: auto;
+  min-width: 125px;
+  padding: 10px;
+  border: 2px @black solid;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #FFF;
+  background: @black;
+  display: block;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    background: @black_lighter;
+    border-color: @black_lighter;
+  }
+
+  &.btn-margin-bottom {
+    margin-bottom: 10px;
+  }
+
+  &.btn-uppercase {
+    text-transform: uppercase;
+    padding: 12px 12px 10px 12px;
+    letter-spacing: 2px;
+  }
+
+  &.btn-copy {
+
+    &:hover {
+      color: #FFF;
+      background: @black_lighter;
+      border-color: @black_lighter;
+    }
+
+  }
+
+  &.btn-invert {
+    background: #FFF;
+    border-color: #FFF;
+    color: @black;
+
+    &:hover {
+      background: @black;
+      color: #FFF;
+    }
+
+  }
+
+  &.btn-border {
+    background: none;
+    color: @black;
+
+    &:hover {
+      border-color: @black;
+      background: @black;
+      color: #FFF;
+    }
+
+  }
+
+  &.btn-border-invert {
+    border-color: #FFF;
+    color: #FFF;
+
+    &:hover {
+      background: #FFF;
+      color: @black;
+    }
+
+  }
+
+  &.btn-red {
+    background: @red;
+    border-color: @red;
+    color: #FFF;
+
+    &:hover {
+      background: #CCC;
+      border-color: #CCC;
+      color: #222;
+    }
+
+    &.btn-border {
+      background: none;
+      border-color: @red;
+      color: @red;
+
+      &:hover {
+        background: @red;
+        color: #FFF;
+      }
+
+    }
+
+  }
+
+}
