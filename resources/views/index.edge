@@ -5,4 +5,15 @@
   <p>Index page</p>
   <p>Adonis Starter</p>
 
+  @loggedIn
+    <h2> You are logged in </h2>
+    <p>
+      <a href="{{ route('logout') }}">Click here</a> to logout
+    </p>
+  @else
+    <p>
+      <a href="{{ route('login') }}">Click here</a> to login
+    </p>
+  @endloggedIn
+
 @endsection

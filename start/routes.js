@@ -37,6 +37,7 @@ Route.on('/resend').render('auth.resend').as('resend')
 Route.on('/forgot').render('auth.forgot').as('forgot')
 Route.get('/reset/:token', 'AuthController.render_reset').as('reset')
 Route.get('/confirm/:token', 'AuthController.confirm').as('confirm')
+Route.get('/logout', 'AuthController.logout').as('logout')
 
 Route.group(() => {
 

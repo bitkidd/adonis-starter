@@ -241,6 +241,15 @@ class AuthController {
 
   }
 
+  // logout
+  async logout ({ response, session, auth }) {
+
+    session.flash({ flash_info: 'Logged out successfully' })
+    await auth.logout()
+    return response.route('root')
+
+  }
+
 }
 
 module.exports = AuthController
