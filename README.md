@@ -1,6 +1,7 @@
 # Adonis Starter
 
 This repo is an implementation of a starter pack for Adonis v.4.x with some tweaks.
+It is just an example of how you can implement front-end stuff and authentication.
 
 ## What's inside?
 
