@@ -13,14 +13,19 @@ It is just an example of how you can implement front-end stuff and authenticatio
 - Folder structure for views
 
 ## Details
+- `webpack` configured to compile three stylesheets and scripts for `application`, `manage` and `auth` section of the app
+- a special `webpack_asset` global added to `View`, to require those js/css files in views
+- a special `host` global added to `View`, to correctly insert links in emails, it take value from `.env` file as a `ADDRESS` variable
+- a set of methods in `Auth` controller, including `signup`, `login`, `reset`, `confirm`, `resend`
+- `welcome` and `forgot` emails for account confirmation and password reset
 
 ## How to use
-To use this repo, you can clone it, or even install via `adonis` command:
 `adonis new <PATH> --blueprint=keeross/adonis-starter`
 
 ## How to run
-A very basic adonis command is `adonis serve --dev`.
-In order to run webpack, you have to open a new terminal window in the same folder and run `npm run watch`, for dev env, and `npm run build` for production.
+Two terminal windows
+- `adonis serve --dev` and `npm run watch` for development 
+- `adonis serve` and `npm run build` for production 
 
 ## PS
 There is a lot of stuff to be done, I will fix them asap
