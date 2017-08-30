@@ -28,8 +28,8 @@ class AuthController {
 
     // send email
     await Mail.send('emails.welcome', { token: user.confirmation_token }, (message) => {
-      message.from('noreply@landicon.com')
-      message.subject('Welcome to Landicon')
+      message.from('noreply@example.com')
+      message.subject('Welcome to Adonis Starter')
       message.to( user.email )
     })
 
@@ -136,7 +136,7 @@ class AuthController {
 
     // resend verification
     await Mail.send('emails.welcome', { token: user.confirmation_token }, (message) => {
-      message.from('noreply@landicon.com')
+      message.from('noreply@example.com')
       message.subject('Verification email')
       message.to( user.email )
     })
@@ -180,7 +180,7 @@ class AuthController {
 
     // resend verification
     await Mail.send('emails.forgot', { token: user.reset_token }, (message) => {
-      message.from('noreply@landicon.com')
+      message.from('noreply@example.com')
       message.subject('Reset password')
       message.to( user.email )
     })
