@@ -58,5 +58,15 @@ module.exports = {
     driver: 'sparkpost',
     apiKey: Env.get('SPARKPOST_API_KEY'),
     extras: {}
+  },
+
+
+  ses: {
+    driver: 'ses',
+    apiVersion: '2012-10-17',
+    accessKeyId: Env.get('SES_KEY'),
+    secretAccessKey: Env.get('SES_SECRET'),
+    region: 'eu-west-1',
+    rateLimit: 10
   }
 }
