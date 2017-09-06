@@ -16,7 +16,7 @@ It is just an example of how you can implement front-end stuff and authenticatio
 ## Details
 - `webpack` configured to compile three stylesheets and scripts for `application`, `manage` and `auth` section of the app
 - a special `webpack_asset` global added to `View`, to require those js/css files in views
-- a special `host` global added to `View`, to correctly insert links in emails, it take value from `.env` file as a `ADDRESS` variable
+- a special `host` global added to `View`, to correctly insert links in emails, it take value from `.env` file as a `APP_URL` variable
 - a set of methods in `Auth` controller, including `signup`, `login`, `reset`, `confirm`, `resend`, `logout`
 - a set of methods in `SocialAuth` controller, including `redirect`, `callback`
 - `welcome` and `forgot` emails for account confirmation and password reset
