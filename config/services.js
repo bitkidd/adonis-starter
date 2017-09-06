@@ -29,7 +29,7 @@ module.exports = {
     facebook: {
       clientId: Env.get('FB_CLIENT_ID'),
       clientSecret: Env.get('FB_CLIENT_SECRET'),
-      redirectUri: `${Env.get('APP_URL')}/auth/facebook`
+      redirectUri: `${Env.get('APP_URL')}/auth/facebook/callback`
     },
 
     /*
@@ -44,7 +44,7 @@ module.exports = {
     google: {
       clientId: Env.get('GOOGLE_CLIENT_ID'),
       clientSecret: Env.get('GOOGLE_CLIENT_SECRET'),
-      redirectUri: `${Env.get('APP_URL')}/auth/google`
+      redirectUri: `${Env.get('APP_URL')}/auth/google/callback`
     },
 
     /*
@@ -59,7 +59,7 @@ module.exports = {
     github: {
       clientId: Env.get('GITHUB_CLIENT_ID'),
       clientSecret: Env.get('GITHUB_CLIENT_SECRET'),
-      redirectUri: `${Env.get('APP_URL')}/auth/github`
+      redirectUri: `${Env.get('APP_URL')}/auth/github/callback`
     },
 
     /*
@@ -74,7 +74,7 @@ module.exports = {
     instagram: {
       clientId: Env.get('INSTAGRAM_CLIENT_ID'),
       clientSecret: Env.get('INSTAGRAM_CLIENT_SECRET'),
-      redirectUri: `${Env.get('APP_URL')}/auth/instagram`
+      redirectUri: `${Env.get('APP_URL')}/auth/instagram/callback`
     },
 
     /*
@@ -89,7 +89,7 @@ module.exports = {
     foursquare: {
       clientId: Env.get('FOURSQUARE_ID'),
       clientSecret: Env.get('FOURSQUARE_SECRET'),
-      redirectUri: `${Env.get('APP_URL')}/auth/foursquare`
+      redirectUri: `${Env.get('APP_URL')}/auth/foursquare/callback`
     }
   }
 }

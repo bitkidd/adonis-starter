@@ -1,30 +1,56 @@
 'use strict'
 
+const Env = use('Env')
+const User = use('App/Models/User')
+
 class SocialAuthController {
 
-  async redirect({ request, params, auth, ally }) {
+  async redirect({ request, response, params, auth, ally }) {
+    const providers = Env.get('APP_AUTH_PROVIDERS', '').split(',')
     const { provider } = params
-    await ally.driver( provider ).redirect()
+
+    // check if requested provider is in the list
+    if ( providers.includes( provider ) ) {
+      await ally.driver( provider ).redirect()
+    } else {
+      return response.route('root')
+    }
+
   }
 
-  async handleCallback ({ request, response, params }) {
+  async handleCallback ({ request, response, session, params, ally, auth }) {
+    const providers = Env.get('APP_AUTH_PROVIDERS', '').split(',')
     const { provider } = params
+
+    // check if requested provider is in the list
+    if ( !providers.includes( provider ) ) {
+      return response.route('root')
+    }
+
+    // get basic user data
     const data = await ally.driver( provider ).getUser()
 
     // search params
     const searchParams = {
-      email: user.getEmail()
+      email: data.getEmail()
     }
 
     // combine data for new user
     const newUser = {
       email: data.getEmail(),
+      password: Math.random().toString(18).substr(2, 8),
+      provider: provider
       // avatar: user.getAvatar(),
-      username: data.getName()
+      // username: data.getName()
     }
 
     // find user
-    const user = await User.findOrCreate( searchParams, newUser )
+    let user = await User.findBy( 'email', data.getEmail() )
+
+    // if no user, create
+    if ( !user ) {
+      user = await User.create( newUser )
+    }
 
     // trying to login user
     try {
@@ -33,7 +59,7 @@ class SocialAuthController {
       return response.route('root')
     } catch (e) {
       session.flash({ flash_error: e.message })
-      return response.redirect('back')
+      return response.redirect('root')
     }
   }
 
