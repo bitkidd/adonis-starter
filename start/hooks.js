@@ -30,7 +30,7 @@ hooks.after.providersRegistered(function () {
 
   // email confirmation link insert
   View.global('host', function () {
-    const address = Env.get('ADDRESS', '127.0.0.1:3333')
+    const address = Env.get('APP_URL', '127.0.0.1:3333')
     return this.safe( address )
   })
 

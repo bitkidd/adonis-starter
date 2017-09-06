@@ -47,4 +47,7 @@ Route.group(() => {
   Route.post('/forgot' , 'AuthController.forgot').as('auth.forgot')
   Route.post('/reset'  , 'AuthController.reset').as('auth.reset')
 
+  Route.get('/:provider', 'SocialAuthController.redirect')
+  Route.get('/:provider/callback', 'SocialAuthController.handleCallback')
+
 }).prefix('auth')
