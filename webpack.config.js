@@ -45,6 +45,15 @@ module.exports = {
         })
       },
 
+      // process css
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          use: ['css-loader'],
+          fallback: 'style-loader'
+        })
+      },
+
       // process js
       {
         test: /\.js$/,
