@@ -9,19 +9,7 @@ class AuthController {
 
   async signup ({ request, response, session }) {
 
-    const rules = User.rules.register
-    const messages = User.messages.register
     const data = request.only(['email', 'password'])
-    const validation = await validate( data, rules, messages )
-
-    // failed validation
-    if ( validation.fails() ) {
-      session
-        .withErrors( validation.messages() )
-        .flashExcept(['password'])
-
-      return response.redirect('back')
-    }
 
     // create user
     const user = await User.create( data )
@@ -40,19 +28,8 @@ class AuthController {
   }
 
   async login ({ request, session, response, auth }) {
-    const rules = User.rules.login
-    const messages = User.messages.login
+
     const data = request.only(['email', 'password'])
-    const validation = await validate( data, rules, messages )
-
-    // failed validation
-    if ( validation.fails() ) {
-      session
-        .withErrors( validation.messages() )
-        .flashExcept(['password'])
-
-      return response.redirect('back')
-    }
 
     // find or fail user by email
     const user = await User.findBy('email', data.email )
@@ -108,18 +85,8 @@ class AuthController {
 
   // resend confirmation token
   async resend ({ request, response, session }) {
-    const rules = User.rules.resend
-    const messages = User.messages.resend
+  
     const data = request.only(['email'])
-    const validation = await validate( data, rules, messages )
-
-    // failed validation
-    if ( validation.fails() ) {
-      session
-        .withErrors( validation.messages() )
-
-      return response.redirect('back')
-    }
 
     // find or fail user by email
     const user = await User.findBy('email', data.email )
@@ -149,20 +116,8 @@ class AuthController {
 
   // forgot password
   async forgot ({ request, response, session }) {
-    const rules = User.rules.forgot
-    const messages = User.messages.forgot
+  
     const data = request.only(['email'])
-    const validation = await validate( data, rules, messages )
-
-    console.log( data )
-
-    // failed validation
-    if ( validation.fails() ) {
-      session
-        .withErrors( validation.messages() )
-
-      return response.redirect('back')
-    }
 
     // find or fail user by email
     const user = await User.findBy('email', data.email )
@@ -211,19 +166,8 @@ class AuthController {
 
   // reset password
   async reset ({ request, response, session }) {
-    const rules = User.rules.reset
-    const messages = User.messages.reset
+    
     const data = request.only(['token', 'password'])
-    const validation = await validate( data, rules, messages )
-
-    // failed validation
-    if ( validation.fails() ) {
-      session
-        .withErrors( validation.messages() )
-        .flashExcept(['password'])
-
-      return response.redirect('back')
-    }
 
     // find or fail user by reset token
     const user = await User.findBy('reset_token', data.token )

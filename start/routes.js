@@ -41,13 +41,14 @@ Route.get('/logout', 'AuthController.logout').as('logout')
 
 Route.group(() => {
 
-  Route.post('/signup' , 'AuthController.signup').as('auth.signup')
-  Route.post('/login'  , 'AuthController.login').as('auth.login')
-  Route.post('/resend' , 'AuthController.resend').as('auth.resend')
-  Route.post('/forgot' , 'AuthController.forgot').as('auth.forgot')
-  Route.post('/reset'  , 'AuthController.reset').as('auth.reset')
+  Route.post('/signup' , 'AuthController.signup').as('auth.signup').validator('auth/Signup')
+  Route.post('/login'  , 'AuthController.login').as('auth.login').validator('auth/Login')
+  Route.post('/resend' , 'AuthController.resend').as('auth.resend').validator('auth/Resend')
+  Route.post('/forgot' , 'AuthController.forgot').as('auth.forgot').validator('auth/Forgot')
+  Route.post('/reset'  , 'AuthController.reset').as('auth.reset').validator('auth/Reset')
 
-  Route.get('/:provider', 'SocialAuthController.redirect')
-  Route.get('/:provider/callback', 'SocialAuthController.handleCallback')
+  Route.get('/:provider', 'SocialAuthController.redirect').as('auth.social.redirect')
+  Route.get('/:provider/callback', 'SocialAuthController.handleCallback').as('auth.social.callback')
+
 
 }).prefix('auth')
