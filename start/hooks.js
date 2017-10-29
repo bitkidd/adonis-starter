@@ -34,5 +34,4 @@ hooks.after.providersRegistered(function () {
     return this.safe( address )
   })
 
-
 })
