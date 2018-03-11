@@ -8,6 +8,12 @@ class Resend {
     }
   }
 
+  get sanitizationRules() {
+    return {
+      email: 'normalize_email'
+    }
+  }
+
   get messages () {
     return {
       'email.required': 'Email is required',

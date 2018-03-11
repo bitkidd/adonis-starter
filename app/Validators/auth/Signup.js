@@ -9,6 +9,12 @@ class Signup {
     }
   }
 
+  get sanitizationRules() {
+    return {
+      email: 'normalize_email'
+    }
+  }
+
   get messages () {
     return {
       'email.required': 'Enter email address to be used for login',
@@ -17,7 +23,7 @@ class Signup {
       'password.required': 'Choose password for your account'
     }
   }
-  
+
 }
 
 module.exports = Signup
