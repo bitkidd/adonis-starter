@@ -1,5 +1,6 @@
 'use strict'
 
+const uuid = use('uuid/v1')
 const { validate } = use('Validator')
 const Hash = use('Hash')
 const Mail = use('Mail')
@@ -85,7 +86,7 @@ class AuthController {
 
   // resend confirmation token
   async resend ({ request, response, session }) {
-  
+
     const data = request.only(['email'])
 
     // find or fail user by email
@@ -116,7 +117,7 @@ class AuthController {
 
   // forgot password
   async forgot ({ request, response, session }) {
-  
+
     const data = request.only(['email'])
 
     // find or fail user by email
@@ -127,10 +128,7 @@ class AuthController {
     }
 
     // add reset token to user
-    const token_part_1 = Math.random().toString(18).substr(2, 8)
-    const token_part_2 = Math.random().toString(18).substr(5, 8)
-    const token_part_3 = Math.random().toString(18).substr(10, 8)
-    user.reset_token = `${token_part_1}-${token_part_2}-${token_part_3}`
+    user.reset_token = uuid()
     await user.save()
 
     // resend verification
@@ -166,7 +164,7 @@ class AuthController {
 
   // reset password
   async reset ({ request, response, session }) {
-    
+
     const data = request.only(['token', 'password'])
 
     // find or fail user by reset token

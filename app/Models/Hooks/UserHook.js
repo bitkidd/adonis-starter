@@ -1,5 +1,6 @@
 'use strict'
 
+const uuid = use('uuid/v1')
 const Hash = use('Hash')
 
 const UserHook = module.exports = {}
@@ -14,12 +15,5 @@ UserHook.setDefaults = async (userInstance) => {
   userInstance.uid = Math.random().toString(18).substr(2, 8)
   userInstance.role = ( userInstance.email == '---' ? 'admin' : 'subscriber' )
   userInstance.provider = userInstance.provider || 'local'
-}
-
-UserHook.setConfirmationToken = async (userInstance) => {
-  let token_part_1 = Math.random().toString(18).substr(2, 8)
-  let token_part_2 = Math.random().toString(18).substr(5, 8)
-  let token_part_3 = Math.random().toString(18).substr(10, 8)
-  const full_token = `${token_part_1}-${token_part_2}-${token_part_3}`
-  userInstance.confirmation_token = ( userInstance.provider == 'local' ? full_token : null )
+  userInstance.confirmation_token = (userInstance.provider === 'local' ? uuid() : null)
 }

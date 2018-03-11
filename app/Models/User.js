@@ -6,9 +6,7 @@ class User extends Model {
   static boot () {
     super.boot()
 
-    this.addHook('beforeCreate', 'UserHook.setDefaults')
-    this.addHook('beforeCreate', 'UserHook.hashPassword')
-    this.addHook('beforeCreate', 'UserHook.setConfirmationToken')
+    this.addHook('beforeCreate', ['UserHook.setDefaults', 'UserHook.hashPassword'])
 
   }
 
