@@ -32,9 +32,8 @@
     "@adonisjs/session": "^1.0.20",
     "@adonisjs/shield": "^1.0.6",
     "@adonisjs/validator": "^5.0.3",
-    "pg": "^7.4.1",
     "assets-webpack-plugin": "^3.5.1",
-    "autoprefixer": "^7.2.6",
+    "autoprefixer": "^8.1.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -44,9 +43,10 @@
     "file-loader": "^1.1.6",
     "less": "^3.0.0",
     "less-loader": "^4.0.5",
+    "pg": "^7.4.1",
     "style-loader": "^0.20.1",
     "uglify-js": "^3.3.10",
-    "url-loader": "^0.6.2",
+    "url-loader": "^1.0.1",
     "webpack": "^3.11.0"
   },
   "engines": {
