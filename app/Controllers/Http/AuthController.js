@@ -16,11 +16,7 @@ class AuthController {
     const user = await User.create( data )
 
     // send email
-    await Mail.send('emails.welcome', { token: user.confirmation_token }, (message) => {
-      message.from('noreply@example.com')
-      message.subject('Welcome to Adonis Starter')
-      message.to( user.email )
-    })
+    Event.fire('AUTH_SIGNUP', user)
 
     // send response
     session.flash({ flash_info: 'Account created. Please verify your email.' })
@@ -103,11 +99,7 @@ class AuthController {
     }
 
     // resend verification
-    await Mail.send('emails.welcome', { token: user.confirmation_token }, (message) => {
-      message.from('noreply@example.com')
-      message.subject('Verification email')
-      message.to( user.email )
-    })
+    Event.fire('AUTH_RESEND_CONFIRMATION', user)
 
     // send response
     session.flash({ flash_info: 'Recheck your email. Please verify your account.' })
@@ -132,11 +124,7 @@ class AuthController {
     await user.save()
 
     // resend verification
-    await Mail.send('emails.forgot', { token: user.reset_token }, (message) => {
-      message.from('noreply@example.com')
-      message.subject('Reset password')
-      message.to( user.email )
-    })
+    Event.fire('AUTH_FORGOT_PASSWORD', user)
 
     // send response
     session.flash({ flash_info: 'Reset password email has been sent.' })
