@@ -25,6 +25,10 @@ class User extends Model {
     return ['password']
   }
 
+  static get admins () {
+    return ['manager@example.com']
+  }
+
 }
 
 module.exports = User
