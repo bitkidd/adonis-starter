@@ -5,6 +5,7 @@ const { validate } = use('Validator')
 const Hash = use('Hash')
 const Mail = use('Mail')
 const User = use('App/Models/User')
+const Event = use('Event')
 
 class AuthController {
 
