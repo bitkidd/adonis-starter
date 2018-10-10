@@ -89,8 +89,8 @@ class AuthController {
     // find or fail user by email
     const user = await User.findBy('email', data.email )
     if ( !user ) {
-      session.flash({ flash_error: 'Wrong email or password.' })
-      return response.redirect('back')
+      session.flash({ flash_info: 'If the email you entered was right, in a minute you will receive the link to confirm your account.' })
+      return response.redirect('login')
     }
 
     // check if already verified
@@ -103,7 +103,7 @@ class AuthController {
     Event.fire('AUTH_RESEND_CONFIRMATION', user)
 
     // send response
-    session.flash({ flash_info: 'Recheck your email. Please verify your account.' })
+    session.flash({ flash_info: 'If the email you entered was right, in a minute you will receive the link to confirm your account.' })
     return response.route('login')
 
   }
@@ -116,7 +116,7 @@ class AuthController {
     // find or fail user by email
     const user = await User.findBy('email', data.email )
     if ( !user ) {
-      session.flash({ flash_error: 'Wrong email or password.' })
+      session.flash({ flash_info: 'If the email you entered was right, in a minute you will receive the link to reset the password.' })
       return response.redirect('back')
     }
 
@@ -128,7 +128,7 @@ class AuthController {
     Event.fire('AUTH_FORGOT_PASSWORD', user)
 
     // send response
-    session.flash({ flash_info: 'Reset password email has been sent.' })
+    session.flash({ flash_info: 'If the email you entered was right, in a minute you will receive the link to reset the password.' })
     return response.route('root')
   }
 
